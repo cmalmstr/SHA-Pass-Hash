@@ -3,27 +3,26 @@ package com.example.carlm.simplehasher;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 
-
-
 public class MainActivity extends AppCompatActivity {
-int hashes;
+private int hashes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         hashes = 0;
     }
-
+    @SuppressWarnings("UnusedParameters")
     public void hashIt(View view){
         int delay = 8000;
         EditText inputData = (EditText)findViewById(R.id.inputField);
@@ -38,14 +37,13 @@ int hashes;
         clipIt(hash);
         showIt(delay);
     }
-
-    public void clipIt(String hash){
+    private void clipIt(String hash){
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText(null, hash);
         clipboard.setPrimaryClip(clip);
     }
-
-    public void showIt(final int delay){
+    @SuppressWarnings("UnusedAssignment")
+    private void showIt(final int delay){
         final int steps = 200;
         final TextView clearData = (TextView)findViewById(R.id.clearMessage);
         final ProgressBar showDelay = (ProgressBar)findViewById(R.id.delayLine);
@@ -59,13 +57,12 @@ int hashes;
             }
             @Override
             public void onFinish() {
-                hashes--;
                 clear();
             }
         }.start();
     }
-
-    public void clear(){
+    private void clear(){
+        hashes--;
         if(hashes == 0)
         setContentView(R.layout.activity_main);
     }

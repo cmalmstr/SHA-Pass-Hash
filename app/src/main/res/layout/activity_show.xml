@@ -77,7 +77,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/delayLine" />
 
             <TextView
-                android:id="@+id/copyMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -94,7 +93,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/action"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
