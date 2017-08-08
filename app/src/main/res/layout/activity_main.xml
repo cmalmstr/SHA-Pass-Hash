@@ -6,54 +6,102 @@
     android:layout_height="match_parent"
     tools:context="com.example.carlm.simplehasher.MainActivity">
 
-    <TextView
-        android:id="@+id/outputField"
-        android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:layout_marginTop="128dp"
-        android:text="@string/defOutput"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/inputField"
-        style="@android:style/Widget.DeviceDefault.EditText"
+    <RelativeLayout
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        android:hint="@string/defInput"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
-        android:textColor="@android:color/black"
-        android:textStyle="italic"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/actionButton" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/actionButton"
-        android:layout_width="51dp"
-        android:layout_height="51dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="0dp"
-        android:clickable="true"
-        android:onClick="hashIt"
-        android:tint="@android:color/background_light"
-        android:tintMode="multiply"
-        app:backgroundTint="@color/colorAccent"
-        app:elevation="5dp"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/inputField"
-        app:layout_constraintLeft_toRightOf="@+id/inputField"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_send"
-        app:useCompatPadding="false"
-        tools:layout_constraintBottom_creator="1" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="64dp"
+            android:orientation="vertical"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/outputField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/defOutput"
+                android:textAlignment="center"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toLeftOf="@+id/info"
+                app:layout_constraintRight_toRightOf="@+id/info"
+                app:layout_constraintTop_toTopOf="@+id/info" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/action"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp">
+
+            <EditText
+                android:id="@+id/inputField"
+                style="@android:style/Widget.DeviceDefault.EditText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="0.98"
+                android:hint="@string/defInput"
+                android:inputType="text"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/actionButton" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/actionButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginStart="4dp"
+                android:clickable="true"
+                android:onClick="hashIt"
+                android:tint="@android:color/background_light"
+                app:elevation="3dp"
+                app:fabSize="mini"
+                app:layout_constraintBottom_toBottomOf="@+id/inputField"
+                app:layout_constraintLeft_toRightOf="@+id/inputField"
+                app:layout_constraintRight_toRightOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_send"
+                tools:layout_constraintBottom_creator="1" />
+
+        </LinearLayout>
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -30,7 +30,7 @@ int hashes;
         String userInput = inputData.getText().toString();
         String hash = new String(Hex.encodeHex(DigestUtils.sha1(userInput)));
         setContentView(R.layout.activity_show);
-        TextView outputData = (TextView)findViewById(R.id.outputField_active);
+        TextView outputData = (TextView)findViewById(R.id.outputField);
         inputData = (EditText)findViewById(R.id.inputField);
         outputData.setText(hash);
         inputData.setText(userInput);
