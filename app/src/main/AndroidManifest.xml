@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.carlm.simplehasher"
+    package="com.carlm.simplehasher"
     android:versionCode="1"
-    android:versionName="@string/version"
+    android:versionName="1"
     android:installLocation="auto">
 
     <application

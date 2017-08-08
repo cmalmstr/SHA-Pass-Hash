@@ -93,11 +93,11 @@
                 android:onClick="hashIt"
                 android:tint="@android:color/background_light"
                 app:elevation="3dp"
-                app:fabSize="mini"
+                app:fabSize="normal"
                 app:layout_constraintBottom_toBottomOf="@+id/inputField"
                 app:layout_constraintLeft_toRightOf="@+id/inputField"
                 app:layout_constraintRight_toRightOf="parent"
-                app:srcCompat="@android:drawable/ic_menu_send"
+                app:srcCompat="@drawable/ic_send_black_24dp"
                 tools:layout_constraintBottom_creator="1" />
 
         </LinearLayout>
