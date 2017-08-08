@@ -1,4 +1,4 @@
-package com.example.carlm.simplehasher;
+package com.carlm.simplehasher;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.example.carlm.simplehasher.R;
 
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;

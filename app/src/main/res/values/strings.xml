@@ -3,4 +3,5 @@
     <string name="defOutput">Please enter a string to hash</string>
     <string name="defInput">Type here&#8230;</string>
     <string name="copy">It\'s copied to the clipboard</string>
+    <string name="version">1</string>
 </resources>
