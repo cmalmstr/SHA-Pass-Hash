@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Uri uriUrl = Uri.parse("http://cmalmstrom.com/donate.html");
+        Uri uriUrl = Uri.parse("http://cmalmstrom.com/privacy_hasher.html");
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
         return true;
