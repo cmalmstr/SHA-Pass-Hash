@@ -2,8 +2,8 @@
     <string name="app_name">SHA-1 Hasher</string>
     <string name="defOutput">Please enter a string to hash</string>
     <string name="defInput">Type here&#8230;</string>
+    <string name="clearMessage">Hash will clear in\u0020</string>
+    <string name="s">\u0020seconds</string>
     <string name="copy">It\'s copied to the clipboard</string>
     <string name="menu1">Donate</string>
-    <string name="url1">http://cmalmstrom.com/donate.html</string>
-    <string name="version">1</string>
 </resources>

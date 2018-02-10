@@ -142,7 +142,8 @@
                 app:layout_constraintLeft_toRightOf="@+id/inputField"
                 app:layout_constraintRight_toRightOf="parent"
                 app:srcCompat="@drawable/ic_send_black_24dp"
-                tools:layout_constraintBottom_creator="1" />
+                tools:layout_constraintBottom_creator="1"
+                android:focusable="true" />
 
         </LinearLayout>
     </RelativeLayout>

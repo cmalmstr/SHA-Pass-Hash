@@ -3,17 +3,19 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'carlm'
-            keyPassword '06amal'
+            keyAlias 'key1'
+            keyPassword '5f7d7d63ba02348c0b8e8d50338a17d4d0a75643'
+            storeFile file('C:/Users/carlm/.AndroidStudio3.0/myKeys.jks')
+            storePassword 'poL#zXO+1'
         }
     }
-    compileSdkVersion 25
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 26
     defaultConfig {
         applicationId "com.carlm.simplehasher"
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 26
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.config
     }
     buildTypes {
         release {
@@ -23,6 +25,9 @@ android {
         }
     }
     android.defaultConfig.vectorDrawables.useSupportLibrary = true
+    buildToolsVersion '26.0.2'
+    productFlavors {
+    }
 }
 
 dependencies {
@@ -30,9 +35,9 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:design:26.1.0'
     compile files('libs/commons-codec-1.10.jar')
 }

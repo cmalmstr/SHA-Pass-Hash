@@ -1,5 +1,6 @@
 package com.carlm.simplehasher;
 
+import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -20,12 +21,18 @@ import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 
 public class MainActivity extends AppCompatActivity {
-private int hashes;
+    private CountDownTimer countdown;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        hashes = 0;
+    }
+    @Override
+    protected void onPause(){
+        super.onPause();
+        if (countdown != null)
+            countdown.cancel();
+        clear();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -40,38 +47,39 @@ private int hashes;
         startActivity(launchBrowser);
         return true;
     }
-    @SuppressWarnings("UnusedParameters")
+    @SuppressWarnings("unused")
     public void hashIt(View view){
-        int delay = 8000;
-        EditText inputData = (EditText)findViewById(R.id.inputField);
+        EditText inputData = findViewById(R.id.inputField);
         String userInput = inputData.getText().toString();
         String hash = new String(Hex.encodeHex(DigestUtils.sha1(userInput)));
+        inputData.setText(R.string.defInput);
         setContentView(R.layout.activity_show);
-        TextView outputData = (TextView)findViewById(R.id.outputField);
-        inputData = (EditText)findViewById(R.id.inputField);
+        TextView outputData = findViewById(R.id.outputField);
+        inputData = findViewById(R.id.inputField);
         outputData.setText(hash);
         inputData.setText(userInput);
-        hashes++;
         clipIt(hash);
-        showIt(delay);
+        showIt();
     }
     private void clipIt(String hash){
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText(null, hash);
-        clipboard.setPrimaryClip(clip);
+        if (clipboard != null)
+            clipboard.setPrimaryClip(clip);
     }
-    @SuppressWarnings("UnusedAssignment")
-    private void showIt(final int delay){
+    private void showIt(){
+        final int delay = 8000;
         final int steps = 200;
-        final TextView clearData = (TextView)findViewById(R.id.clearMessage);
-        final ProgressBar showDelay = (ProgressBar)findViewById(R.id.delayLine);
-        final String clearMessage = "Hash will clear in ";
-        final String s = " seconds";
-        CountDownTimer countdown = new CountDownTimer(delay, delay/steps) {
+        final TextView clearData = findViewById(R.id.clearMessage);
+        final ProgressBar showDelay = findViewById(R.id.delayLine);
+        if (countdown != null)
+            countdown.cancel();
+        countdown = new CountDownTimer(delay, delay/steps) {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onTick(long millisUntilFinished) {
                 showDelay.incrementProgressBy(400/steps);
-                clearData.setText(clearMessage + (1+millisUntilFinished/1000) + s);
+                clearData.setText(getString(R.string.clearMessage) + (1+millisUntilFinished/1000) + getString(R.string.s));
             }
             @Override
             public void onFinish() {
@@ -80,8 +88,6 @@ private int hashes;
         }.start();
     }
     private void clear(){
-        hashes--;
-        if(hashes == 0)
         setContentView(R.layout.activity_main);
     }
 }
